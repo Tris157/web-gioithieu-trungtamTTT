@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trí Tín Thịnh Edu – Trung tâm Giáo dục & Đào tạo tại Tam Kỳ</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A2463;
+  --navy-dark:#071840;
+  --navy-mid:#1A3A7A;
+  --gold:#F5C842;
+  --gold-dark:#D4A017;
+  --orange:#F07020;
+  --white:#FFFFFF;
+  --light:#F4F7FF;
+  --text:#1A2340;
+  --muted:#5A6A8A;
+  --border:#E0E8F5;
+  --card-shadow:0 2px 16px rgba(10,36,99,0.10);
+  --radius:12px;
+  --radius-sm:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Be Vietnam Pro',sans-serif;background:#fff;color:var(--text);font-size:16px;line-height:1.6}
+/* ANIMATIONS */
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+@keyframes slideInUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.7}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes glow{0%{box-shadow:0 0 10px rgba(245,200,66,0.3)}50%{box-shadow:0 0 20px rgba(245,200,66,0.6)}100%{box-shadow:0 0 10px rgba(245,200,66,0.3)}}
+@keyframes heroGradient{0%{background-position:0% 50%,0 0}50%{background-position:100% 50%,0 0}100%{background-position:0% 50%,0 0}}
+@keyframes gridDrift{from{transform:translate3d(0,0,0)}to{transform:translate3d(-72px,72px,0)}}
+@keyframes lightSweep{0%{transform:translateX(-30%) skewX(-16deg);opacity:0}18%,65%{opacity:1}100%{transform:translateX(30%) skewX(-16deg);opacity:0}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,36,99,0.97);backdrop-filter:blur(8px);padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,200,66,0.2);animation:fadeInDown 0.6s ease-out}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-badge{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--navy);line-height:1.1;text-align:center}
+.nav-logo-text{color:var(--white);font-weight:700;font-size:15px;letter-spacing:0.02em;line-height:1.2}
+.nav-logo-text span{color:var(--gold);display:block;font-size:11px;font-weight:500;letter-spacing:0.08em}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:8px 18px;border-radius:var(--radius-sm);font-weight:700;font-size:14px;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--gold-dark)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(125deg,#06143A 0%,#0A2463 34%,#1B3E80 58%,#0F2F64 78%,#071840 100%),linear-gradient(90deg,rgba(245,200,66,0.12),rgba(240,112,32,0.06));background-size:260% 260%,100% 100%;display:flex;align-items:center;padding:100px 2rem 60px;position:relative;overflow:hidden;animation:heroGradient 16s ease-in-out infinite}
+.hero::before{content:'';position:absolute;inset:-90px;background-image:linear-gradient(rgba(255,255,255,0.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(135deg,transparent 0 42%,rgba(245,200,66,0.13) 48%,transparent 54%);background-size:72px 72px,72px 72px,520px 520px;opacity:.55;pointer-events:none;animation:gridDrift 22s linear infinite}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,0.11) 18%,rgba(245,200,66,0.12) 26%,transparent 42%);mix-blend-mode:screen;pointer-events:none;animation:lightSweep 9s ease-in-out infinite}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,200,66,0.15);border:1px solid rgba(245,200,66,0.3);border-radius:100px;padding:6px 16px;color:var(--gold);font-size:13px;font-weight:600;margin-bottom:1.5rem;animation:fadeInLeft 0.8s ease-out}
+.hero-badge span{width:6px;height:6px;background:var(--gold);border-radius:50%;display:inline-block}
+.hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);line-height:1.15;margin-bottom:0.5rem;letter-spacing:-0.02em;animation:fadeInUp 0.8s ease-out 0.2s backwards}
+.hero h1 em{color:var(--gold);font-style:normal;display:block}
+.hero-sub{font-size:clamp(1rem,1.5vw,1.25rem);color:var(--gold);font-weight:600;margin-bottom:1rem;letter-spacing:0.02em}
+.hero p{color:rgba(255,255,255,0.75);font-size:15px;line-height:1.7;margin-bottom:2rem;max-width:480px;animation:fadeInUp 0.8s ease-out 0.4s backwards}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn-primary{background:var(--gold);color:var(--navy);padding:14px 28px;border-radius:var(--radius-sm);font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;animation:fadeInUp 0.8s ease-out 0.6s backwards}
+.btn-primary:hover{background:var(--gold-dark);transform:translateY(-3px);box-shadow:0 8px 20px rgba(245,200,66,0.3)}
+.btn-outline{background:transparent;color:var(--white);padding:13px 24px;border-radius:var(--radius-sm);font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid rgba(255,255,255,0.3);display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.btn-outline:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+.hero-visual{display:flex;flex-direction:column;gap:12px}
+.hero-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hero-stat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:var(--radius);padding:20px 16px;text-align:center;backdrop-filter:blur(10px);box-shadow:0 18px 40px rgba(0,0,0,0.10),inset 0 1px 0 rgba(255,255,255,0.08);animation:scaleIn 0.6s ease-out 0.8s backwards}
+.hero-stat-num{font-size:2rem;font-weight:800;color:var(--gold);display:block}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,0.6);margin-top:2px}
+.hero-hotline{background:rgba(245,200,66,0.12);border:1px solid rgba(245,200,66,0.32);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:12px;backdrop-filter:blur(10px);box-shadow:0 18px 40px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.08);animation:scaleIn 0.6s ease-out 0.9s backwards}
+.hero-hotline-icon{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
+.hero-hotline-text small{display:block;font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+.hero-hotline-text a{color:var(--gold);font-weight:700;font-size:15px;text-decoration:none;display:block;line-height:1.4}
+
+/* SECTIONS */
+section{padding:5rem 2rem}
+.container{max-width:1100px;margin:0 auto;width:100%}
+.section-label{display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);background:rgba(10,36,99,0.07);padding:5px 14px;border-radius:100px;margin-bottom:1rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.25rem);font-weight:800;color:var(--text);margin-bottom:0.75rem;line-height:1.2;letter-spacing:-0.02em;animation:fadeInUp 0.8s ease-out}
+.section-title em{color:var(--navy);font-style:normal}
+.section-subtitle{font-size:16px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:3rem}
+.text-center{text-align:center}
+.text-center .section-subtitle{margin-left:auto;margin-right:auto}
+
+/* WHY CHOOSE */
+.why-bg{background:var(--light)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.why-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;gap:16px;align-items:flex-start;transition:all .3s;animation:slideInUp 0.6s ease-out}
+.why-card:hover{box-shadow:var(--card-shadow);transform:translateY(-4px)}
+.why-icon{width:48px;height:48px;background:rgba(10,36,99,0.07);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;animation:bounce 1s infinite}
+.why-card-text h3{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.why-card-text p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* COURSES */
+.courses-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.filter-btn{padding:7px 16px;border-radius:100px;border:1.5px solid var(--border);background:transparent;color:var(--muted);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .3s}
+.filter-btn:hover,.filter-btn.active{background:var(--navy);border-color:var(--navy);color:var(--white)}
+.courses-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.course-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s;animation:slideInUp 0.6s ease-out}
+.course-card:hover{box-shadow:var(--card-shadow);transform:translateY(-6px)}
+.course-card-header{background:var(--navy);padding:20px;position:relative}
+.course-grade-badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;margin-bottom:10px;letter-spacing:0.05em}
+.course-card-header h3{color:var(--white);font-size:16px;font-weight:700;line-height:1.3}
+.course-card-body{padding:20px}
+.course-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.course-meta-item{display:flex;gap:10px;align-items:flex-start;font-size:13.5px}
+.course-meta-item .label{color:var(--muted);min-width:80px;flex-shrink:0;padding-top:1px}
+.course-meta-item .value{color:var(--text);font-weight:500;line-height:1.5}
+.course-meta-item .value small{display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:1px}
+.course-start{display:inline-flex;align-items:center;gap:6px;background:rgba(240,112,32,0.08);color:var(--orange);font-size:12px;font-weight:700;padding:4px 10px;border-radius:6px;margin-bottom:14px}
+.btn-register{display:block;background:var(--navy);color:var(--white);text-align:center;padding:11px;border-radius:var(--radius-sm);font-weight:700;font-size:14px;text-decoration:none;transition:all .3s}
+.btn-register:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 6px 12px rgba(10,36,99,0.2)}
+
+/* TEACHERS */
+.teachers-bg{background:var(--navy-dark);color:var(--white)}
+.teachers-bg .section-label{background:rgba(245,200,66,0.15);color:var(--gold)}
+.teachers-bg .section-title{color:var(--white)}
+.teachers-bg .section-title em{color:var(--gold)}
+.teachers-bg .section-subtitle{color:rgba(255,255,255,0.6)}
+.teachers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.teacher-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:24px 20px;text-align:center;transition:all .3s;animation:scaleIn 0.6s ease-out}
+.teacher-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(245,200,66,0.3);transform:translateY(-4px)}
+.teacher-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,var(--orange) 100%);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:var(--navy);animation:pulse 2s infinite}
+.teacher-card h3{color:var(--white);font-size:15px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.teacher-card .subject{color:var(--gold);font-size:13px;font-weight:600;margin-bottom:6px}
+.teacher-card .school{color:rgba(255,255,255,0.5);font-size:12px;line-height:1.4}
+
+/* FACILITIES */
+.facilities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.facility-item{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px;text-align:center;transition:all .3s;animation:slideInUp 0.6s ease-out}
+.facility-item:hover{box-shadow:var(--card-shadow);transform:translateY(-4px)}
+.facility-item .icon{font-size:32px;margin-bottom:10px;display:block}
+.facility-item h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:4px}
+.facility-item p{font-size:13px;color:var(--muted)}
+
+/* BRANCHES */
+.branches-bg{background:var(--navy)}
+.branches-bg .section-label{background:rgba(245,200,66,0.15);color:var(--gold)}
+.branches-bg .section-title{color:var(--white)}
+.branches-bg .section-title em{color:var(--gold)}
+.branches-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.branch-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px;transition:all .3s;animation:slideInUp 0.6s ease-out}
+.branch-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(245,200,66,0.3);transform:translateY(-4px)}
+.branch-num{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:var(--navy);margin-bottom:14px}
+.branch-card h3{color:var(--white);font-size:16px;font-weight:700;margin-bottom:8px}
+.branch-card p{color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6}
+.branch-card a{display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-size:13px;font-weight:600;text-decoration:none;margin-top:12px}
+
+/* ROOM RENTAL */
+.room-section{background:linear-gradient(135deg,#0F1F4A 0%,#1A3464 100%);color:var(--white)}
+.room-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.room-section .section-label{background:rgba(245,200,66,0.15);color:var(--gold)}
+.room-section .section-title{color:var(--white)}
+.room-section .section-title em{color:var(--gold)}
+.room-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.room-list li{display:flex;align-items:flex-start;gap:12px;font-size:14.5px;color:rgba(255,255,255,0.85)}
+.room-list .check{width:22px;height:22px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:1px;color:var(--navy);font-weight:700}
+.room-pricing{background:rgba(245,200,66,0.1);border:1px solid rgba(245,200,66,0.25);border-radius:var(--radius);padding:24px;margin-top:24px}
+.room-pricing h4{color:var(--gold);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px}
+.room-pricing .price{font-size:2rem;font-weight:800;color:var(--white);margin-bottom:4px}
+.room-pricing .price em{font-style:normal;font-size:1rem;color:rgba(255,255,255,0.6)}
+.room-pricing p{color:rgba(255,255,255,0.6);font-size:13px}
+.btn-teacher{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);padding:14px 28px;border-radius:var(--radius-sm);font-weight:700;font-size:15px;text-decoration:none;margin-top:24px;transition:all .3s}
+.btn-teacher:hover{background:var(--gold-dark);transform:translateY(-3px);box-shadow:0 8px 20px rgba(245,200,66,0.3)}
+.facilities-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:6px 14px;color:rgba(255,255,255,0.75);font-size:13px}
+
+/* FORM */
+.form-bg{background:var(--light)}
+.form-wrap{max-width:640px;margin:0 auto;background:var(--white);border-radius:16px;padding:2.5rem;box-shadow:0 4px 40px rgba(10,36,99,0.10);animation:slideInUp 0.8s ease-out}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-group label{font-size:13px;font-weight:700;color:var(--text);letter-spacing:0.02em}
+.form-group input,.form-group select,.form-group textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;color:var(--text);background:var(--white);transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy)}
+.form-group textarea{resize:vertical;min-height:80px}
+.btn-submit{width:100%;background:var(--navy);color:var(--white);padding:15px;border:none;border-radius:var(--radius-sm);font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .3s;margin-top:8px;animation:slideInUp 0.8s ease-out}
+.btn-submit:hover{background:var(--navy-mid);transform:translateY(-2px);box-shadow:0 8px 16px rgba(10,36,99,0.2)}
+.form-success{display:none;text-align:center;padding:2rem}
+.form-success .check-circle{width:64px;height:64px;background:rgba(10,36,99,0.08);border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:28px}
+.form-success h3{color:var(--navy);font-size:1.2rem;font-weight:800;margin-bottom:0.5rem}
+.form-success p{color:var(--muted);font-size:14px}
+
+/* FOOTER */
+footer{background:var(--navy-dark);color:rgba(255,255,255,0.7);padding:3rem 2rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.footer-brand .logo{font-size:18px;font-weight:800;color:var(--white);margin-bottom:8px}
+.footer-brand .logo span{color:var(--gold)}
+.footer-brand p{font-size:13px;line-height:1.7;margin-bottom:1rem}
+.footer-hotlines{display:flex;flex-direction:column;gap:4px}
+.footer-hotlines a{color:var(--gold);font-weight:700;font-size:15px;text-decoration:none}
+.footer-col h4{color:var(--white);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col ul li{font-size:13px;line-height:1.5}
+.footer-bottom{max-width:1100px;margin:2rem auto 0;border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+
+/* FLOATING BUTTONS */
+.float-btns{position:fixed;bottom:24px;right:20px;z-index:999;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.float-btn{display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:100px;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.2);transition:all .2s;white-space:nowrap}
+.float-btn:hover{transform:translateX(-4px)}
+.float-phone{background:var(--navy);color:var(--white)}
+.float-zalo{background:#0068FF;color:var(--white)}
+.float-register{background:var(--gold);color:var(--navy)}
+.float-btn .dot{width:8px;height:8px;background:rgba(255,255,255,0.7);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:0.5}}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero-inner,.room-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-visual{display:none}
+  .footer-inner{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  nav .nav-links{display:none}
+  .float-btn span.label{display:none}
+  .float-btn{padding:12px;border-radius:50%;width:48px;height:48px;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero,.hero::before,.hero::after{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-badge">TT<br>T</div>
+    <div class="nav-logo-text">Trí Tín Thịnh Edu<span>Trung tâm Giáo dục & Đào tạo</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#courses">Lớp học</a></li>
+    <li><a href="#teachers">Giáo viên</a></li>
+    <li><a href="#branches">Cơ sở</a></li>
+    <li><a href="#room-rental">Cho thuê phòng</a></li>
+  </ul>
+  <a href="#register" class="nav-cta">Đăng ký tư vấn</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span></span> Tuyển sinh năm học 2026</div>
+      <h1>Trí Tín Thịnh<em>Edu</em></h1>
+      <div class="hero-sub">Học đúng lớp — đúng thầy cô — đúng mục tiêu</div>
+      <p>Hệ thống trung tâm giáo dục tại Tam Kỳ với đội ngũ giáo viên từ các trường THPT Chuyên, lớp học rõ lịch, 3 cơ sở thuận tiện và cơ sở vật chất hiện đại.</p>
+      <div class="hero-btns">
+        <a href="#register" class="btn-primary">🎯 Đăng ký tư vấn ngay</a>
+        <a href="#courses" class="btn-outline">📚 Xem lịch học</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat-grid">
+        <div class="hero-stat"><span class="hero-stat-num">8</span><div class="hero-stat-label">Môn học đang tuyển</div></div>
+        <div class="hero-stat"><span class="hero-stat-num">3</span><div class="hero-stat-label">Cơ sở tại Tam Kỳ</div></div>
+        <div class="hero-stat"><span class="hero-stat-num">6–12</span><div class="hero-stat-label">Lớp từ THCS đến THPT</div></div>
+        <div class="hero-stat"><span class="hero-stat-num">4K</span><div class="hero-stat-label">Tivi, máy lạnh, wifi</div></div>
+      </div>
+      <div class="hero-hotline">
+        <div class="hero-hotline-icon">📞</div>
+        <div class="hero-hotline-text">
+          <small>Hotline tư vấn</small>
+          <a href="tel:0938232757">0938.232.757</a>
+          <a href="tel:0962141646">0962.141.646 · 0905.70.72.75</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section class="why-bg" style="padding:4rem 2rem" id="why">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2.5rem">
+      <div class="section-label">Vì sao chọn chúng tôi</div>
+      <h2 class="section-title">Trí Tín Thịnh Edu — <em>khác biệt ở đâu?</em></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <div class="why-card-text"><h3>Giáo viên từ trường chuyên</h3><p>Đội ngũ từ THPT Chuyên Nguyễn Bỉnh Khiêm, Trần Cao Vân và các trường quốc tế uy tín tại Tam Kỳ.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">📅</div>
+        <div class="why-card-text"><h3>Lịch học rõ ràng, linh hoạt</h3><p>Nhiều ca học trong ngày, học sinh dễ dàng chọn lớp phù hợp với lịch cá nhân.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🗺️</div>
+        <div class="why-card-text"><h3>3 cơ sở tại Tam Kỳ</h3><p>Vị trí trung tâm, dễ tìm, bãi đỗ xe rộng rãi. Thuận tiện cho phụ huynh đưa đón.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🖥️</div>
+        <div class="why-card-text"><h3>Cơ sở vật chất hiện đại</h3><p>Phòng học máy lạnh, tivi 4K, wifi tốc độ cao, hỗ trợ tài liệu in ấn đầy đủ.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎓</div>
+        <div class="why-card-text"><h3>Từ THCS đến ôn thi đại học</h3><p>Lớp 6 đến 12, luyện thi vào 10, ôn THPT QG, ĐGNL, IELTS — đủ mọi nhu cầu.</p></div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">💬</div>
+        <div class="why-card-text"><h3>Tư vấn lộ trình cá nhân</h3><p>Đội ngũ tư vấn định hướng lớp học phù hợp theo năng lực và mục tiêu của từng học sinh.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES SHOWCASE -->
+<section style="padding:5rem 2rem;background:linear-gradient(180deg,#f8fafb 0%,#e8f0f8 100%)">
+  <div class="container">
+    <div class="section-label">Cơ sở vật chất</div>
+    <h2 class="section-title">Môi trường học tập <em>hiện đại & thoải mái</em></h2>
+    <p class="section-subtitle">Các phòng học được trang bị đầy đủ tiện nghi, không khí lạnh, WiFi tốc độ cao để tập trung vào học tập.</p>
+    
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:3rem">
+      <div style="overflow:hidden;border-radius:12px;box-shadow:0 8px 24px rgba(10,36,99,0.12);animation:slideInUp 0.6s ease-out">
+        <img src="images/facility-1.jpg" style="width:100%;height:280px;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding:18px;background:white">
+          <h4 style="color:var(--navy);font-size:15px;font-weight:700;margin-bottom:8px">Phòng Học Hiện Đại</h4>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6">Phòng máy lạnh, bảng trắng kích thước lớn, tivi 4K hỗ trợ giảng dạy.</p>
+        </div>
+      </div>
+
+      <div style="overflow:hidden;border-radius:12px;box-shadow:0 8px 24px rgba(10,36,99,0.12);animation:slideInUp 0.6s ease-out 0.1s backwards">
+        <img src="images/facility-2.jpg" style="width:100%;height:280px;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding:18px;background:white">
+          <h4 style="color:var(--navy);font-size:15px;font-weight:700;margin-bottom:8px">Tiện Nghi Hỗ Trợ Học</h4>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6">In ấn tài liệu, WiFi 6 tốc độ cao, nước uống miễn phí cho học sinh.</p>
+        </div>
+      </div>
+
+      <div style="overflow:hidden;border-radius:12px;box-shadow:0 8px 24px rgba(10,36,99,0.12);animation:slideInUp 0.6s ease-out 0.2s backwards">
+        <img src="images/facility-3.jpg" style="width:100%;height:280px;object-fit:cover;display:block;transition:transform .4s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <div style="padding:18px;background:white">
+          <h4 style="color:var(--navy);font-size:15px;font-weight:700;margin-bottom:8px">Lớp Học Tích Cực</h4>
+          <p style="color:var(--muted);font-size:13px;line-height:1.6">Giáo viên tương tác nhiều với học sinh, khuyến khích đặt câu hỏi và thảo luận.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" style="padding:5rem 2rem">
+  <div class="container">
+    <div class="section-label">Thông báo tuyển sinh</div>
+    <h2 class="section-title">Các lớp đang <em>mở đăng ký</em></h2>
+    <p class="section-subtitle">Khai giảng tháng 6/2026. Chọn lớp theo môn và khối lớp phù hợp với con.</p>
+
+    <div class="courses-filter">
+      <button class="filter-btn active" onclick="filterCourse('all',this)">Tất cả</button>
+      <button class="filter-btn" onclick="filterCourse('thcs',this)">THCS (lớp 6–9)</button>
+      <button class="filter-btn" onclick="filterCourse('thpt',this)">THPT (lớp 10–12)</button>
+      <button class="filter-btn" onclick="filterCourse('toan',this)">Toán</button>
+      <button class="filter-btn" onclick="filterCourse('anh',this)">Anh văn</button>
+      <button class="filter-btn" onclick="filterCourse('khoa-hoc',this)">Khoa học</button>
+    </div>
+
+    <div class="courses-grid" id="coursesGrid">
+
+      <!-- 1: Toán 12 -->
+      <div class="course-card" data-tags="thpt toan">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 12 · THPT QG</div>
+          <h3>Toán 12 & Ôn thi THPT Quốc gia, Luyện thi Đại học</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Thầy Diệp Tính<small>THPT Chuyên Nguyễn Bỉnh Khiêm</small></span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Lớp 12.1: T2,4,6 — 15h–17h<small>Lớp 12.2: T2,4,6 — 17h–19h</small><small>Lớp 12.3: T3,5,7 — 17h–19h (khai 02/06)</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 2: Hóa -->
+      <div class="course-card" data-tags="thpt khoa-hoc">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 10–12 · THPT QG</div>
+          <h3>Hóa học 10, 11, 12 & Ôn thi THPT QG, Luyện thi Đại học</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Cô ThS. Võ Thị Linh<small>THPT Chuyên Nguyễn Bỉnh Khiêm</small></span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Lớp 10: T3,5 — 17h–18h30<small>Lớp 11: T2,4,6 — 19h–20h30</small><small>Lớp 12: T2,4,6 — 17h–18h30</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 3: Toán ĐGNL -->
+      <div class="course-card" data-tags="thcs thpt toan">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 9–12 · ĐGNL</div>
+          <h3>Toán 9, 10, 11, 12 & Đánh giá Năng lực</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Thầy ThS. Nguyễn Đức Tín<small>QNA International School</small></span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Lớp 10: T2,4 — 19h–20h30<small>Lớp 11: T3,5,7 — 19h–20h30</small><small>Lớp 12: T3,5,7 — 17h–19h</small><small>Lớp 9: T6+T7+CN (nhiều ca)</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 4: Ngữ Văn -->
+      <div class="course-card" data-tags="thpt">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 11–12 · THPT QG</div>
+          <h3>Ngữ văn 11, 12 & Ôn thi THPT QG, Luyện thi Đại học</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Cô Trần Hoàng Thanh Giang<small>THPT Trần Cao Vân</small></span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Lớp 12.1: T3,5 — 17h–19h<small>Lớp 12.2: T3,5 — 19h–21h</small><small>Lớp 11: T3,5 — 7h30–9h30</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 5: Vật Lý -->
+      <div class="course-card" data-tags="thpt khoa-hoc">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 10–12 · THPT QG</div>
+          <h3>Vật lý 10, 11, 12 & Ôn thi THPT QG, Luyện thi Đại học</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Thầy Võ Quốc Á<small>THPT Chuyên Nguyễn Bỉnh Khiêm</small></span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Lớp 10: T3,5,7 — 15h–16h30<small>Lớp 11: T2,4,6 — 17h–18h30</small><small>Lớp 12: T2,4,6 — 19h–20h30</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 6: Anh Văn -->
+      <div class="course-card" data-tags="thcs thpt anh">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 6–12 · IELTS · THPT QG</div>
+          <h3>Anh văn 6–12 & Ôn thi THPT QG, Luyện thi ĐH, IELTS</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Cô ThS. Phạm Thị Thu Hiền<small>THPT Trần Cao Vân — Lớp 10,11,12 & THPT</small></span></div>
+            <div class="course-meta-item"><span class="label"></span><span class="value">Thầy Trần Công Chương<small>QNA Academy — IELTS lớp 6–12, ôn lên lớp 10</small></span></div>
+            <div class="course-meta-item"><span class="label"></span><span class="value">Cô Nguyễn Thị Yến<small>Lớp 6,7,8,9 & ôn lên lớp 10</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 7: Toán Chuyên -->
+      <div class="course-card" data-tags="thcs toan">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 9 · Luyện thi Chuyên</div>
+          <h3>Toán 9 — Luyện thi vào Chuyên Toán lớp 10</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Thầy Trương Trần Tấn Phước<small>THPT Chuyên Nguyễn Bỉnh Khiêm</small></span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Thứ 2, 4, 6 — 19h–20h30</span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+      <!-- 8: KHTN -->
+      <div class="course-card" data-tags="thcs khoa-hoc">
+        <div class="course-card-header">
+          <div class="course-grade-badge">Lớp 6–9 · THCS</div>
+          <h3>Khoa học tự nhiên lớp 6, 7, 8, 9</h3>
+        </div>
+        <div class="course-card-body">
+          <div class="course-start">🔥 Khai giảng 01/06/2026</div>
+          <div class="course-meta">
+            <div class="course-meta-item"><span class="label">Giáo viên</span><span class="value">Cô Phạm Thị Thanh Huệ</span></div>
+            <div class="course-meta-item"><span class="label">Lịch học</span><span class="value">Lớp 6: T2,4 — 7h30–9h<small>Lớp 7: T2,4 — 9h–10h30</small><small>Lớp 8: T3,5 — 7h30–9h</small><small>Lớp 9: T3,5 — 9h–10h30</small></span></div>
+          </div>
+          <a href="#register" class="btn-register">Đăng ký lớp này →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+<section class="teachers-bg" style="padding:5rem 2rem" id="teachers">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2.5rem">
+      <div class="section-label">Đội ngũ giáo viên</div>
+      <h2 class="section-title">Giáo viên từ các trường <em>uy tín nhất Tam Kỳ</em></h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.6);margin-left:auto;margin-right:auto">Tất cả giáo viên đang công tác tại THPT Chuyên và các trường top đầu tỉnh Quảng Nam.</p>
+    </div>
+    <div class="teachers-grid">
+      <div class="teacher-card">
+        <div class="teacher-avatar">DT</div>
+        <h3>Thầy Diệp Tính</h3>
+        <div class="subject">Toán 12 · THPT QG</div>
+        <div class="school">THPT Chuyên Nguyễn Bỉnh Khiêm</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">VL</div>
+        <h3>Cô ThS. Võ Thị Linh</h3>
+        <div class="subject">Hóa 10, 11, 12</div>
+        <div class="school">THPT Chuyên Nguyễn Bỉnh Khiêm</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">DT</div>
+        <h3>Thầy ThS. Nguyễn Đức Tín</h3>
+        <div class="subject">Toán 9–12 · ĐGNL</div>
+        <div class="school">QNA International School</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">TG</div>
+        <h3>Cô Trần Hoàng Thanh Giang</h3>
+        <div class="subject">Ngữ văn 11, 12</div>
+        <div class="school">THPT Trần Cao Vân</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">VA</div>
+        <h3>Thầy Võ Quốc Á</h3>
+        <div class="subject">Vật lý 10, 11, 12</div>
+        <div class="school">THPT Chuyên Nguyễn Bỉnh Khiêm</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">PH</div>
+        <h3>Cô ThS. Phạm Thị Thu Hiền</h3>
+        <div class="subject">Anh văn 10–12 · THPT</div>
+        <div class="school">THPT Trần Cao Vân</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">TC</div>
+        <h3>Thầy Trần Công Chương</h3>
+        <div class="subject">Anh văn · IELTS</div>
+        <div class="school">QNA International School</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">TP</div>
+        <h3>Thầy Trương Trần Tấn Phước</h3>
+        <div class="subject">Toán 9 · Chuyên lớp 10</div>
+        <div class="school">THPT Chuyên Nguyễn Bỉnh Khiêm</div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-avatar">TH</div>
+        <h3>Cô Phạm Thị Thanh Huệ</h3>
+        <div class="subject">KHTN lớp 6–9</div>
+        <div class="school">Trung tâm Trí Tín Thịnh Edu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section style="padding:5rem 2rem" id="facilities">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2.5rem">
+      <div class="section-label">Cơ sở vật chất</div>
+      <h2 class="section-title">Phòng học <em>tiện nghi & hiện đại</em></h2>
+    </div>
+    <div class="facilities-grid">
+      <div class="facility-item"><span class="icon">❄️</span><h4>Máy lạnh</h4><p>Phòng học mát mẻ, thoải mái suốt buổi học</p></div>
+      <div class="facility-item"><span class="icon">📺</span><h4>Tivi 4K</h4><p>Màn hình sắc nét cho việc giảng dạy và trình chiếu</p></div>
+      <div class="facility-item"><span class="icon">📶</span><h4>Wifi tốc độ cao</h4><p>Kết nối ổn định, hỗ trợ học tập trực tuyến</p></div>
+      <div class="facility-item"><span class="icon">🎥</span><h4>Thiết bị livestream</h4><p>Hỗ trợ dạy trực tuyến chất lượng cao</p></div>
+      <div class="facility-item"><span class="icon">🖨️</span><h4>In ấn tại chỗ</h4><p>Hỗ trợ photo, in tài liệu ngay tại trung tâm</p></div>
+      <div class="facility-item"><span class="icon">☕</span><h4>Nước uống & tea-break</h4><p>Nước uống miễn phí và khu nghỉ giữa giờ</p></div>
+      <div class="facility-item"><span class="icon">🅿️</span><h4>Bãi đỗ xe rộng</h4><p>Chỗ đỗ xe thoải mái cho phụ huynh và học sinh</p></div>
+      <div class="facility-item"><span class="icon">📍</span><h4>Vị trí trung tâm</h4><p>Dễ tìm, 3 cơ sở phủ khắp TP. Tam Kỳ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHES -->
+<section class="branches-bg" style="padding:5rem 2rem" id="branches">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2.5rem">
+      <div class="section-label">Địa điểm</div>
+      <h2 class="section-title" style="color:#fff">3 cơ sở tại <em>TP. Tam Kỳ</em></h2>
+    </div>
+    <div class="branches-grid">
+      <div class="branch-card">
+        <div class="branch-num">1</div>
+        <h3>Cơ sở 1</h3>
+        <p>17 Nguyễn Duy Hiệu, TP. Tam Kỳ, Quảng Nam</p>
+        <a href="tel:0938232757">📞 0938.232.757</a>
+      </div>
+      <div class="branch-card">
+        <div class="branch-num">2</div>
+        <h3>Cơ sở 2</h3>
+        <p>321/3 Hùng Vương, TP. Tam Kỳ, Quảng Nam</p>
+        <a href="tel:0962141646">📞 0962.141.646</a>
+      </div>
+      <div class="branch-card">
+        <div class="branch-num">3</div>
+        <h3>Cơ sở 3</h3>
+        <p>14 Nguyễn Đình Chiểu, TP. Tam Kỳ, Quảng Nam</p>
+        <a href="tel:0905707275">📞 0905.70.72.75</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOM RENTAL -->
+<section class="room-section" style="padding:5rem 2rem" id="room-rental">
+  <div class="container">
+    <div class="room-inner">
+      <div>
+        <div class="section-label">Dành cho giáo viên</div>
+        <h2 class="section-title">Cho thuê phòng dạy tại Tam Kỳ —<em> đầy đủ tiện ích, hỗ trợ tuyển sinh</em></h2>
+        <p style="color:rgba(255,255,255,0.65);font-size:15px;margin-bottom:1.5rem;line-height:1.7">Bạn là giáo viên muốn mở lớp? Chúng tôi lo toàn bộ hạ tầng, tuyển sinh và quản lý — bạn chỉ cần dạy tốt.</p>
+        <ul class="room-list">
+          <li><span class="check">✓</span>Hỗ trợ tuyển sinh tăng sĩ số, tư vấn phụ huynh thay giáo viên</li>
+          <li><span class="check">✓</span>Thu phí đầu tháng, tổng hợp và chuyển lại 1 lần/tháng — không lo thất thoát</li>
+          <li><span class="check">✓</span>Hỗ trợ pháp lý, giấy phép dạy thêm đúng quy định</li>
+          <li><span class="check">✓</span>Quản lý học viên chuyên nghiệp, làm việc trực tiếp với phụ huynh định kỳ</li>
+          <li><span class="check">✓</span>Xuất hóa đơn, đóng thuế đầy đủ, minh bạch</li>
+          <li><span class="check">✓</span>Linh hoạt thuê theo buổi hoặc tháng — ưu đãi khi thuê dài hạn</li>
+        </ul>
+        <a href="tel:0938232757" class="btn-teacher">🏫 Tôi là giáo viên, cần thuê phòng</a>
+      </div>
+      <div>
+        <div class="room-pricing">
+          <h4>Chi phí tối ưu</h4>
+          <div class="price">70–80k <em>/học sinh/tháng</em></div>
+          <p>hoặc 20% học phí — linh hoạt theo thỏa thuận</p>
+          <p style="margin-top:8px;font-size:12px;color:rgba(255,255,255,0.4)">Ưu đãi tốt hơn khi thuê dài hạn: tháng / quý / năm</p>
+        </div>
+        <div style="margin-top:20px">
+          <p style="color:rgba(255,255,255,0.6);font-size:13px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.08em;font-weight:700">Tiện ích phòng học</p>
+          <div class="facilities-tags">
+            <span class="tag">❄️ Máy lạnh</span>
+            <span class="tag">📺 Tivi 4K</span>
+            <span class="tag">📶 Wifi cao</span>
+            <span class="tag">🎥 Livestream</span>
+            <span class="tag">🖨️ In ấn tại chỗ</span>
+            <span class="tag">☕ Tea-break</span>
+            <span class="tag">🧾 Xuất hóa đơn</span>
+          </div>
+        </div>
+        <div style="margin-top:20px;background:rgba(255,100,0,0.1);border:1px solid rgba(255,100,0,0.25);border-radius:10px;padding:16px">
+          <p style="color:#FFA050;font-weight:700;font-size:14px">⚠️ Số lượng phòng giới hạn</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:13px;margin-top:4px">Ưu tiên đặt sớm để được chọn khung giờ và cơ sở phù hợp.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER FORM -->
+<section class="form-bg" style="padding:5rem 2rem" id="register">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:2rem">
+      <div class="section-label">Đăng ký ngay</div>
+      <h2 class="section-title">Nhận tư vấn <em>lớp phù hợp</em></h2>
+      <p class="section-subtitle">Để lại thông tin, đội ngũ Trí Tín Thịnh Edu sẽ liên hệ tư vấn lộ trình học phù hợp nhất cho con trong thời gian sớm nhất.</p>
+    </div>
+    <div class="form-wrap">
+      <div id="formContent">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Họ tên phụ huynh / học sinh *</label>
+            <input type="text" id="f-name" placeholder="Nguyễn Văn A">
+          </div>
+          <div class="form-group">
+            <label>Số điện thoại *</label>
+            <input type="tel" id="f-phone" placeholder="0912 345 678">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Lớp hiện tại của học sinh</label>
+            <select id="f-grade">
+              <option value="">-- Chọn lớp --</option>
+              <option>Lớp 6</option><option>Lớp 7</option><option>Lớp 8</option><option>Lớp 9</option>
+              <option>Lớp 10</option><option>Lớp 11</option><option>Lớp 12</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Môn muốn học</label>
+            <select id="f-subject">
+              <option value="">-- Chọn môn --</option>
+              <option>Toán</option><option>Hóa học</option><option>Vật lý</option>
+              <option>Ngữ văn</option><option>Anh văn / IELTS</option>
+              <option>Khoa học tự nhiên</option><option>Nhiều môn</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Cơ sở muốn học</label>
+          <select id="f-branch">
+            <option value="">-- Chọn cơ sở --</option>
+            <option>Cs 1 – 17 Nguyễn Duy Hiệu</option>
+            <option>Cs 2 – 321/3 Hùng Vương</option>
+            <option>Cs 3 – 14 Nguyễn Đình Chiểu</option>
+            <option>Chưa quyết định</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ghi chú thêm</label>
+          <textarea id="f-note" placeholder="Lịch rảnh, mục tiêu học tập, hoặc câu hỏi cần tư vấn..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitForm()">🎯 Nhận tư vấn lớp phù hợp</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check-circle">✅</div>
+        <h3>Đăng ký thành công!</h3>
+        <p>Cảm ơn bạn đã đăng ký. Trí Tín Thịnh Edu sẽ liên hệ tư vấn trong thời gian sớm nhất.</p>
+        <p style="margin-top:12px;font-size:13px;color:#999">Hoặc liên hệ ngay: <a href="tel:0938232757" style="color:var(--navy);font-weight:700">0938.232.757</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Trí Tín Thịnh <span>Edu</span></div>
+      <p>Hệ thống Trung tâm Giáo dục & Đào tạo tại Tam Kỳ. Đồng hành cùng học sinh từ nền tảng đến bứt phá điểm số.</p>
+      <div class="footer-hotlines">
+        <a href="tel:0938232757">📞 0938.232.757</a>
+        <a href="tel:0962141646">📞 0962.141.646</a>
+        <a href="tel:0905707275">📞 0905.70.72.75</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Lớp học</h4>
+      <ul>
+        <li>Toán 9–12 & THPT QG</li>
+        <li>Hóa học 10–12</li>
+        <li>Vật lý 10–12</li>
+        <li>Ngữ văn 11–12</li>
+        <li>Anh văn 6–12 & IELTS</li>
+        <li>KHTN lớp 6–9</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Cơ sở</h4>
+      <ul>
+        <li>17 Nguyễn Duy Hiệu</li>
+        <li>321/3 Hùng Vương</li>
+        <li>14 Nguyễn Đình Chiểu</li>
+        <li style="margin-top:8px">TP. Tam Kỳ, Quảng Nam</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Trí Tín Thịnh Edu. All rights reserved.</span>
+    <span>Hotline: 0938.232.757</span>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="tel:0938232757" class="float-btn float-phone">
+    <span>📞</span><span class="label">Gọi ngay</span>
+  </a>
+  <a href="https://zalo.me/0938232757" class="float-btn float-zalo" target="_blank">
+    <span>💬</span><span class="label">Zalo tư vấn</span>
+  </a>
+  <a href="#register" class="float-btn float-register">
+    <span class="dot"></span><span class="label">Đăng ký học</span>
+  </a>
+</div>
+
+<script>
+function filterCourse(tag,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.course-card').forEach(card=>{
+    if(tag==='all'||card.dataset.tags.includes(tag)){
+      card.style.display='';
+    } else {
+      card.style.display='none';
+    }
+  });
+}
+
+var SHEET_URL='https://script.google.com/macros/s/AKfycbw8zo93UMAbGM98iZjX3KwPJhsMA7Bv62z-BuEiDe90a_9FEhB-xePOJbrUkmAqu89Y/exec';
+
+function submitForm(){
+  var name=document.getElementById('f-name').value.trim();
+  var phone=document.getElementById('f-phone').value.trim();
+  if(!name||!phone){alert('Vui lòng nhập họ tên và số điện thoại.');return;}
+  var btn=document.querySelector('.btn-submit');
+  btn.textContent='Đang gửi...';
+  btn.disabled=true;
+
+  var iframe=document.createElement('iframe');
+  iframe.name='hidden-iframe';
+  iframe.style.display='none';
+  document.body.appendChild(iframe);
+
+  var form=document.createElement('form');
+  form.method='POST';
+  form.action=SHEET_URL;
+  form.target='hidden-iframe';
+
+  var fields={
+    name:name,
+    phone:phone,
+    grade:document.getElementById('f-grade').value,
+    subject:document.getElementById('f-subject').value,
+    branch:document.getElementById('f-branch').value,
+    note:document.getElementById('f-note').value.trim()
+  };
+  Object.keys(fields).forEach(function(k){
+    var input=document.createElement('input');
+    input.type='hidden';
+    input.name=k;
+    input.value=fields[k];
+    form.appendChild(input);
+  });
+  document.body.appendChild(form);
+  form.submit();
+
+  setTimeout(function(){
+    document.getElementById('formContent').style.display='none';
+    document.getElementById('formSuccess').style.display='block';
+    document.body.removeChild(form);
+    document.body.removeChild(iframe);
+  },1500);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',function(e){
+    var target=document.querySelector(this.getAttribute('href'));
+    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+</script>
+</body>
+</html>
