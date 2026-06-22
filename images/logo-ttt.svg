@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Tri Tin Thinh Edu logo</title>
+  <desc id="desc">A navy and gold education logo with a book, torch, and TTT monogram.</desc>
+  <defs>
+    <linearGradient id="gold" x1="20" y1="18" x2="108" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFE27A"/>
+      <stop offset="1" stop-color="#F5C842"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="26" y1="20" x2="100" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#123B82"/>
+      <stop offset="1" stop-color="#071840"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#gold)"/>
+  <path d="M64 18 105 36v31c0 25-16 39-41 48-25-9-41-23-41-48V36l41-18Z" fill="url(#navy)"/>
+  <path d="M34 43h60v10H70v46H58V53H34V43Z" fill="#F5C842"/>
+  <path d="M45 66c8 0 14 2 19 7 5-5 11-7 19-7v25c-8 0-14 2-19 7-5-5-11-7-19-7V66Z" fill="#FFFFFF"/>
+  <path d="M50 73c5 0 9 1 14 5 5-4 9-5 14-5" fill="none" stroke="#0A2463" stroke-width="4" stroke-linecap="round"/>
+  <path d="M64 29c5 6 7 10 7 14a7 7 0 0 1-14 0c0-4 2-8 7-14Z" fill="#FFFFFF"/>
+</svg>

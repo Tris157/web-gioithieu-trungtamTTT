@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trí Tín Thịnh Edu – Trung tâm Giáo dục & Đào tạo tại Tam Kỳ</title>
+<link rel="icon" href="images/logo-cong-ty.jpg" type="image/jpeg">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -42,7 +43,8 @@ body{font-family:'Be Vietnam Pro',sans-serif;background:#fff;color:var(--text);f
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,36,99,0.97);backdrop-filter:blur(8px);padding:0 1.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(245,200,66,0.2);animation:fadeInDown 0.6s ease-out}
 .nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo-badge{width:40px;height:40px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--navy);line-height:1.1;text-align:center}
+.nav-logo-badge{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--white);box-shadow:0 6px 18px rgba(0,0,0,0.16);flex-shrink:0}
+.nav-logo-badge img{width:100%;height:100%;display:block;object-fit:cover}
 .nav-logo-text{color:var(--white);font-weight:700;font-size:15px;letter-spacing:0.02em;line-height:1.2}
 .nav-logo-text span{color:var(--gold);display:block;font-size:11px;font-weight:500;letter-spacing:0.08em}
 .nav-links{display:flex;gap:1.5rem;list-style:none}
@@ -191,6 +193,8 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,0.7);padding:3rem 2rem
 .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
 .footer-brand .logo{font-size:18px;font-weight:800;color:var(--white);margin-bottom:8px}
 .footer-brand .logo span{color:var(--gold)}
+.footer-brand-mark{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.footer-brand-mark img{width:62px;height:62px;border-radius:14px;object-fit:cover;box-shadow:0 8px 20px rgba(0,0,0,0.2)}
 .footer-brand p{font-size:13px;line-height:1.7;margin-bottom:1rem}
 .footer-hotlines{display:flex;flex-direction:column;gap:4px}
 .footer-hotlines a{color:var(--gold);font-weight:700;font-size:15px;text-decoration:none}
@@ -218,6 +222,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,0.7);padding:3rem 2rem
   nav .nav-links{display:none}
   .float-btn span.label{display:none}
   .float-btn{padding:12px;border-radius:50%;width:48px;height:48px;justify-content:center}
+  .nav-logo-badge{width:46px;height:46px}
 }
 @media(prefers-reduced-motion:reduce){
   .hero,.hero::before,.hero::after{animation:none}
@@ -229,7 +234,7 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,0.7);padding:3rem 2rem
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <div class="nav-logo-badge">TT<br>T</div>
+    <div class="nav-logo-badge"><img src="images/logo-cong-ty.jpg" alt="Trí Tín Thịnh Edu"></div>
     <div class="nav-logo-text">Trí Tín Thịnh Edu<span>Trung tâm Giáo dục & Đào tạo</span></div>
   </div>
   <ul class="nav-links">
@@ -727,7 +732,10 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,0.7);padding:3rem 2rem
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="logo">Trí Tín Thịnh <span>Edu</span></div>
+      <div class="footer-brand-mark">
+        <img src="images/logo-cong-ty.jpg" alt="Trí Tín Thịnh Edu">
+        <div class="logo">Trí Tín Thịnh <span>Edu</span></div>
+      </div>
       <p>Hệ thống Trung tâm Giáo dục & Đào tạo tại Tam Kỳ. Đồng hành cùng học sinh từ nền tảng đến bứt phá điểm số.</p>
       <div class="footer-hotlines">
         <a href="tel:0938232757">📞 0938.232.757</a>
